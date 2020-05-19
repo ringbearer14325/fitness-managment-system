@@ -57,4 +57,6 @@ class Login
     
 }
 
+$Login = new Login;
+
 ?>
