@@ -18,13 +18,16 @@ class Login
         }
 
         // check if user exists
-        $user = $this->user_exists( $post['username'] );
+        $user = $this->in_array_r($post['username'], $this->users);
         
         if ( false !== $user ) {
-            if ( password_verify( $post['password'], $user->password ) ) {
-                $_SESSION['username'] = $user->username;
+            if ( $post['username'] == $user['password'] ) {
+                $_SESSION['username'] = $user['username'];
+                
+                return true;
             }
         }
+        return false;
     }    
     
     public function verify_session() {
@@ -41,21 +44,17 @@ class Login
     }
     
 
-    private function in_array_r() {
+    private function in_array_r($needle, $haystack) {
+        foreach($haystack as $item) {
+            if (in_array($needle, $item) ) {
+                return $item;
+            }
+        }
 
-
+        return false; 
 
     }
     
-    public function users_exists() {
-
-
-
-
-    }
-
-
-
 }
 
 ?>
