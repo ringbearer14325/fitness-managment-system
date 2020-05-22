@@ -4,7 +4,11 @@
 
 class trainer {
 
+    public function __construct() {
 
+
+        
+    }
 
     
 }
