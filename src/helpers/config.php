@@ -1,7 +1,7 @@
 <?php
 
 $users = array(
-  array = (
+  array(
     'username' => 'john',
     'password' => '*****',
   ),
