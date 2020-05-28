@@ -1,6 +1,4 @@
 <?php
-
-
 class member {
 
     public string $firstname;

@@ -1,7 +1,5 @@
 <?php
 
-
-
 class trainer {
       
     public string $firstname;
