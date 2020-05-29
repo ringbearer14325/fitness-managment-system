@@ -1,0 +1,14 @@
+.container {
+    padding: 25px;
+}
+
+.row {
+    padding: 20px;
+    border-color: turquoise;
+    display: flex;
+}
+
+.col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
