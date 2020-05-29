@@ -1,0 +1,36 @@
+#buttonsBar {
+    padding: 10px;
+    border-color: blue;
+    border-top-color: burlywood;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+#adminBar {
+    padding:10px;
+}
+
+
+.container {
+    padding: 25px;
+}
+
+.row {
+    padding: 10;
+    border-color: cadetblue;
+}
+
+
+.customersTable {
+    padding: 25px;
+    border-color: cyan;
+}
+
+.btn-primary {
+   background-color: darkgreen;
+   display: inline-block;
+   text-align: center;
+   color: white;
+}
