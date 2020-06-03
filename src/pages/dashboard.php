@@ -6,8 +6,13 @@ if (! empty( $_POST ) )
 $mysql = new mysqli( DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $data = array_map( array( $mysql, 'real_escape_string' ), $_POST);
 
+// convert to variables
+extract($data);
 
 
+// submit to database
+$query = "INSERT INTO USERS (name, email) VALUES ('$name', '$email')";
+$insert = $mysql->query( $query );
 
 ?>
 <!doctype html>
@@ -52,9 +57,15 @@ $data = array_map( array( $mysql, 'real_escape_string' ), $_POST);
             <?php endif; ?>
         </div>
             <?php endif; ?>      
-        <button type="button" class="btn btn-primary">Add member</button>
-        <button type="button" class="btn btn-primary">Delete member</button>
-        <button type="button" class="btn btn-primary">Modify member data</button>
+        <button type="button" id="addMember" class="btn btn-primary">Add member</button>
+        <?php ?>
+
+        <button type="button" id="deleteMember" class="btn btn-primary">Delete member</button>
+        <?php   ?>
+
+        <button type="button" id="modifyMember" class="btn btn-primary">Modify member data</button>
+        <?php ?>
+
     </div>
     <div class="row">
         <button type="button" class="btn btn-primary">Add trainer</button>
