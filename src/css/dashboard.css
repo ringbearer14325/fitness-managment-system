@@ -34,3 +34,18 @@
    text-align: center;
    color: white;
 }
+
+
+.message {
+ border-left-style: groove;
+ border-radius: 19px;
+
+
+}
+
+#addMember, #deleteMember, #modifyMember {
+  border: hotpink;
+  padding: 10px;
+
+
+}

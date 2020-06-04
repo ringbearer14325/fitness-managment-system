@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<include "header.html"></include>
+<include>"header.html"</include>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -44,5 +44,5 @@
     </div>
 </div>
 </body>
-<include "footer.html"></include>
+<include>"footer.html"</include>
 </html>

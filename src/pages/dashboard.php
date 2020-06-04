@@ -9,15 +9,14 @@ $data = array_map( array( $mysql, 'real_escape_string' ), $_POST);
 // convert to variables
 extract($data);
 
-
 // submit to database
 $query = "INSERT INTO USERS (name, email) VALUES ('$name', '$email')";
 $insert = $mysql->query( $query );
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<include "header.html"></include>
+<include>"header.php"</include>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -58,8 +57,9 @@ $insert = $mysql->query( $query );
         </div>
             <?php endif; ?>      
         <button type="button" id="addMember" class="btn btn-primary">Add member</button>
-        <?php ?>
-
+        <?php if (isset($insert == true) ) : 
+            "INSERT INTO USERS(type) VALUE($type == 'member')"?>       
+            <?php endif ?>
         <button type="button" id="deleteMember" class="btn btn-primary">Delete member</button>
         <?php   ?>
 
@@ -106,5 +106,5 @@ $insert = $mysql->query( $query );
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
-<include "footer.html"></include>
+<include>"footer.php"</include>
 </html>
