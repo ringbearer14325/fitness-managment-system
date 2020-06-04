@@ -10,7 +10,7 @@ $data = array_map( array( $mysql, 'real_escape_string' ), $_POST);
 extract($data);
 
 // submit to database
-$query = "INSERT INTO USERS (name, email) VALUES ('$name', '$email')";
+$query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
 $insert = $mysql->query( $query );
 
 ?>
@@ -25,7 +25,7 @@ $insert = $mysql->query( $query );
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- style sheet-->
-    <link href="src\css\admin.css" rel="stylesheet" type="text/css">
+    <link href="src\css\dashboard.css" rel="stylesheet" type="text/css">
     <title>Admin</title>
 </head>
 <body>
@@ -56,14 +56,23 @@ $insert = $mysql->query( $query );
             <?php endif; ?>
         </div>
             <?php endif; ?>      
-        <button type="button" id="addMember" class="btn btn-primary">Add member</button>
-        <?php if (isset($insert == true) ) : 
-            "INSERT INTO USERS(type) VALUE($type == 'member')"?>       
-            <?php endif ?>
-        <button type="button" id="deleteMember" class="btn btn-primary">Delete member</button>
-        <?php   ?>
+        <button type="submit" id="addMember" class="btn btn-primary" value="Submit">Add member</button>
+        <?php if (isset($insert) ) : ?>
+           <?php $query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $insert = $mysql->query( $query ); ?>     
+           <?php endif ?>
 
-        <button type="button" id="modifyMember" class="btn btn-primary">Modify member data</button>
+        <button type="submit" id="deleteMember" class="btn btn-primary" value="Submit">Delete member</button>
+        <?php if (isset($delete) ) : ?>
+           <?php $query = "DELETE FROM users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $delete = $mysql->query( $query ); ?>     
+           <?php endif ?>
+
+        <button type="submit" id="modifyMember" class="btn btn-primary" value="Submit">Modify member data</button>
+        <?php if (isset($modify) ) : ?>
+           <?php $query = "ALTER users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $modify = $mysql->query( $query ); ?>     
+           <?php endif ?>
         <?php ?>
 
     </div>
