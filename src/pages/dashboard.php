@@ -77,9 +77,23 @@ $insert = $mysql->query( $query );
 
     </div>
     <div class="row">
-        <button type="button" class="btn btn-primary">Add trainer</button>
-        <button type="button" class="btn btn-primary">Delete trainer</button>
-        <button type="button" class="btn btn-primary">Modify trainers shift</button>
+        <button type="button" id="addTrainer" class="btn btn-primary" value="Submit">Add trainer</button>
+        <?php if (isset($insert) ) : ?>
+           <?php $query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $insert = $mysql->query( $query ); ?>     
+           <?php endif ?>
+
+        <button type="button" id="deleteTrainer" class="btn btn-primary" value="Submit">Delete trainer</button>
+        <?php if (isset($insert) ) : ?>
+           <?php $query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $insert = $mysql->query( $query ); ?>     
+           <?php endif ?>
+
+        <button type="button" id="modifyTrainer" class="btn btn-primary" value="Submit">Modify trainers shift</button>
+        <?php if (isset($insert) ) : ?>
+           <?php $query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $insert = $mysql->query( $query ); ?>     
+           <?php endif ?>
     </div>
 </div>
 </div>
