@@ -15,7 +15,7 @@
 <body>
 <div id="memberBar">
 <div class="container">
-    <form action="">
+<form>
     <div class="row">
     <div class="col-50">
     <h3>New Registration</h3>
@@ -39,27 +39,12 @@
         <input type="date" id="joiningDate" name="joiningDate" placeholder="04/12/2019">
     <label for="plan"><i class="fa fa-plan"></i>plan</label>
         <input type="plan" id="plan" name="plan" placeholder="gold">
+    <button type="submit" id="memberBtn" class="btn btn-primary btn-lg">Save</button>
     </div>
     </div>
+</form>
 </div>
 </div>
-
-
- <!-- <div id="paymentBar">
-    <div class="container">
-        <h2>Make a payment</h2>
-        <div>Payment methods include Paypal or Credit card.</div>
-        <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-    <button type="button" class="btn btn-primary">Pay</button>
-    <?php <button>"button"</button> if (isset("button") == true ) ) ?>
-    </div>
-</div>  -->
 </body>
 <include>"footer.html"</include>
 </html>

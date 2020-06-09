@@ -44,6 +44,22 @@
     </div>    
     <h2>Shipping address is the same as billing</h2>
     <button type="submit" class="btn btn-primary btn-lg btn-block">Continue to checkout</button>
+
+    <!-- <div id="paymentBar">
+    <div class="container">
+        <h2>Make a payment</h2>
+        <div>Payment methods include Paypal or Credit card.</div>
+        <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+    <button type="button" class="btn btn-primary">Pay</button>
+    <?php <button>"button"</button> if (isset("button") == true ) ) ?>
+    </div>
+</div>  -->
 </form>
 </div>
 </div>
