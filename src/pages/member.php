@@ -10,9 +10,14 @@ $data = array_map( array( $mysql, 'real_escape_string' ), $_POST);
 extract($data);
 
 // submit to database
-$query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
-$insert = $mysql->query( $query );
+$insertQuery = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
+$insert = $mysql->query( $insertQuery );
 
+$deleteQuery = "DELETE FROM users (name, email) VALUES ('$name', '$email')";    
+$delete = $mysql->query( $deleteQuery );     
+
+$alterQuery = "ALTER users (name, email) VALUES ('$name', '$email')";  
+$modify = $mysql->query( $alterQuery );    
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,9 +34,9 @@ $insert = $mysql->query( $query );
     <title>Member</title>
 </head>
 <body>
-<div id="memberBar">
+<div>
 <div class="container">
-<form>
+<form id="memberForm">
 <?php if (isset($insert) ) : ?>
         <div class="message">
             <?php if ( $insert == true ) : ?>
@@ -73,20 +78,3 @@ $insert = $mysql->query( $query );
 </body>
 <include>"footer.html"</include>
 </html>
-
-<?php if (isset($insert) ) : ?>
-           <?php $query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";  ?>  
-           <?php $insert = $mysql->query( $query ); ?>     
-           <?php endif ?>
-
-
-           <?php if (isset($delete) ) : ?>
-           <?php $query = "DELETE FROM users (name, email) VALUES ('$name', '$email')";  ?>  
-           <?php $delete = $mysql->query( $query ); ?>     
-           <?php endif ?>
-
-           <?php if (isset($modify) ) : ?>
-           <?php $query = "ALTER users (name, email) VALUES ('$name', '$email')";  ?>  
-           <?php $modify = $mysql->query( $query ); ?>     
-           <?php endif ?>
-        <?php ?>          

@@ -61,7 +61,7 @@
     </div>
 </div>
 </div>
-<div class="customersTable">
+<div class="membersTable">
     <h2>Customers in queue</h2>
 <table style="width:100%">
     <tr>
