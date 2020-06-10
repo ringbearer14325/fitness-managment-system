@@ -1,3 +1,19 @@
+<?php 
+require_once("config.php");
+
+if (! empty( $_POST ) ) 
+// connect and escape
+$mysql = new mysqli( DB_HOST, DB_USER, DB_PASS, DB_NAME );
+$data = array_map( array( $mysql, 'real_escape_string' ), $_POST);
+
+// convert to variables
+extract($data);
+
+// submit to database
+$query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
+$insert = $mysql->query( $query );
+
+?>
 <!doctype html>
 <html lang="en">
 <include>"header.html"</include>
@@ -16,6 +32,15 @@
 <div id="memberBar">
 <div class="container">
 <form>
+<?php if (isset($insert) ) : ?>
+        <div class="message">
+            <?php if ( $insert == true ) : ?>
+                    <p class="success">the data was inserted successfully.</p>
+            <?php else : ?>
+                    <p class="error">There was an error with the submission.</p>
+            <?php endif; ?>
+        </div>
+            <?php endif; ?>      
     <div class="row">
     <div class="col-50">
     <h3>New Registration</h3>
@@ -48,3 +73,20 @@
 </body>
 <include>"footer.html"</include>
 </html>
+
+<?php if (isset($insert) ) : ?>
+           <?php $query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $insert = $mysql->query( $query ); ?>     
+           <?php endif ?>
+
+
+           <?php if (isset($delete) ) : ?>
+           <?php $query = "DELETE FROM users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $delete = $mysql->query( $query ); ?>     
+           <?php endif ?>
+
+           <?php if (isset($modify) ) : ?>
+           <?php $query = "ALTER users (name, email) VALUES ('$name', '$email')";  ?>  
+           <?php $modify = $mysql->query( $query ); ?>     
+           <?php endif ?>
+        <?php ?>          

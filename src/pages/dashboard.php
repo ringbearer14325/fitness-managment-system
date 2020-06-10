@@ -1,19 +1,3 @@
-<?php 
-require_once("config.php");
-
-if (! empty( $_POST ) ) 
-// connect and escape
-$mysql = new mysqli( DB_HOST, DB_USER, DB_PASS, DB_NAME);
-$data = array_map( array( $mysql, 'real_escape_string' ), $_POST);
-
-// convert to variables
-extract($data);
-
-// submit to database
-$query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
-$insert = $mysql->query( $query );
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <include>"header.php"</include>
@@ -46,34 +30,14 @@ $insert = $mysql->query( $query );
 </div>
 <div id=buttonsBar>
 <div class="container">
-    <div class="row">
-        <?php if (isset($insert) ) : ?>
-        <div class="message">
-            <?php if ( $insert == true ) : ?>
-                    <p class="success">the data was inserted successfully.</p>
-            <?php else : ?>
-                    <p class="error">There was an error with the submission.</p>
-            <?php endif; ?>
-        </div>
-            <?php endif; ?>      
+    <div class="row">             
         <button type="submit" id="addMember" class="btn btn-primary" value="Submit">Add member</button>
-        <?php if (isset($insert) ) : ?>
-           <?php $query = "INSERT INTO users (name, email) VALUES ('$name', '$email')";  ?>  
-           <?php $insert = $mysql->query( $query ); ?>     
-           <?php endif ?>
-
+      
         <button type="submit" id="deleteMember" class="btn btn-primary" value="Submit">Delete member</button>
-        <?php if (isset($delete) ) : ?>
-           <?php $query = "DELETE FROM users (name, email) VALUES ('$name', '$email')";  ?>  
-           <?php $delete = $mysql->query( $query ); ?>     
-           <?php endif ?>
+      
 
         <button type="submit" id="modifyMember" class="btn btn-primary" value="Submit">Modify member data</button>
-        <?php if (isset($modify) ) : ?>
-           <?php $query = "ALTER users (name, email) VALUES ('$name', '$email')";  ?>  
-           <?php $modify = $mysql->query( $query ); ?>     
-           <?php endif ?>
-        <?php ?>
+        
 
     </div>
     <div class="row">
